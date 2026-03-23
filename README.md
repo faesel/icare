@@ -122,8 +122,8 @@ Click the ⚙ icon on the widget (appears on hover) or right-click the tray icon
 
 | Setting | Default | Description |
 |---|---|---|
-| ⏱️ Countdown duration | 20s | How often you're reminded to blink |
-| 😌 Break duration | 10s | How long the rest period lasts |
+| ⏱️ Countdown duration | 20 min | How often you're reminded to blink |
+| 😌 Break duration | 20s | How long the rest period lasts |
 | 🔁 Start on login | Off | Auto-launch iCare when you log in |
 | 📳 Shake widget | On | Shake the widget on alert |
 | 🔔 Ping sound | On | Audible ping when it's time to blink |

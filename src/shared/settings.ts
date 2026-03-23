@@ -8,8 +8,8 @@ export interface AppSettings {
 }
 
 export const DEFAULT_SETTINGS: AppSettings = {
-  countdownDuration: 20,
-  breakDuration: 10,
+  countdownDuration: 1200,
+  breakDuration: 20,
   launchOnLogin: false,
   shakeOnAlert: true,
   soundOnAlert: true,
