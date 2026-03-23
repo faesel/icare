@@ -63,6 +63,16 @@ npm run package:mac
 npm run package:win
 ```
 
+### 🍎 macOS — "app is damaged" warning
+
+macOS Gatekeeper blocks unsigned apps. After installing iCare from the DMG, run:
+
+```bash
+xattr -cr /Applications/iCare.app
+```
+
+Then open the app as normal. This only needs to be done once.
+
 ---
 
 ## 🏷️ Creating a Release
