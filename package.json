@@ -1,6 +1,6 @@
 {
   "name": "icare",
-  "version": "1.0.0",
+  "version": "1.1.1",
   "description": "A retro-styled blink reminder desktop widget",
   "main": "dist/main/index.js",
   "author": "Faesel Saeed",
