@@ -167,8 +167,14 @@ ipcMain.on('settings:set', (_event, settings: AppSettings) => {
   currentSettings = { ...DEFAULT_SETTINGS, ...settings };
   saveSettings(currentSettings);
 
-  // Apply launch-on-login
-  app.setLoginItemSettings({ openAtLogin: currentSettings.launchOnLogin });
+  // Only set login items in packaged builds — unpacked dev builds lack the required entitlement
+  if (app.isPackaged) {
+    try {
+      app.setLoginItemSettings({ openAtLogin: currentSettings.launchOnLogin });
+    } catch {
+      // Silently ignore — permission may not be granted
+    }
+  }
 
   // Notify the main widget
   mainWindow?.webContents.send('settings:updated', currentSettings);
