@@ -99,7 +99,7 @@ html, body {
   text-transform: uppercase;
 }
 
-/* State: alert */
+/* State: alert — red flash with pulsing text */
 #widget.state-alert {
   animation: flash-red 0.8s ease-in-out infinite;
   box-shadow:
@@ -114,6 +114,7 @@ html, body {
 
 #widget.state-alert #timer {
   text-shadow: 0 0 8px rgba(255, 0, 0, 0.6);
+  animation: flash-text 0.8s ease-in-out infinite;
 }
 
 #widget.state-alert #ghost {
@@ -122,44 +123,12 @@ html, body {
 
 #widget.state-alert #label {
   color: #ff4444;
+  animation: flash-text 0.8s ease-in-out infinite;
 }
 
 @keyframes flash-red {
   0%, 100% { background: #0a0a0a; }
   50% { background: #1a0000; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  #widget.state-alert {
-    animation: none;
-    background: #1a0000;
-  }
-}
-
-/* State: break — red flashing text */
-#widget.state-break {
-  box-shadow:
-    inset 0 2px 6px rgba(0, 0, 0, 0.7),
-    0 0 10px rgba(255, 0, 0, 0.15);
-}
-
-#widget.state-break #timer,
-#widget.state-break #ghost {
-  color: #ff0000;
-}
-
-#widget.state-break #timer {
-  text-shadow: 0 0 8px rgba(255, 0, 0, 0.5);
-  animation: flash-text 0.8s ease-in-out infinite;
-}
-
-#widget.state-break #ghost {
-  opacity: 0.08;
-}
-
-#widget.state-break #label {
-  color: #ff4444;
-  animation: flash-text 0.8s ease-in-out infinite;
 }
 
 @keyframes flash-text {
@@ -168,10 +137,38 @@ html, body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  #widget.state-break #timer,
-  #widget.state-break #label {
+  #widget.state-alert {
+    animation: none;
+    background: #1a0000;
+  }
+  #widget.state-alert #timer,
+  #widget.state-alert #label {
     animation: none;
   }
+}
+
+/* State: break — calm blue */
+#widget.state-break {
+  box-shadow:
+    inset 0 2px 6px rgba(0, 0, 0, 0.7),
+    0 0 10px rgba(66, 135, 245, 0.15);
+}
+
+#widget.state-break #timer,
+#widget.state-break #ghost {
+  color: #4287f5;
+}
+
+#widget.state-break #timer {
+  text-shadow: 0 0 8px rgba(66, 135, 245, 0.5);
+}
+
+#widget.state-break #ghost {
+  opacity: 0.08;
+}
+
+#widget.state-break #label {
+  color: #5a9cf5;
 }
 
 /* Break button */
@@ -201,7 +198,7 @@ html, body {
 }
 
 #break-btn:focus-visible {
-  outline: 2px solid #ff8888;
+  outline: 2px solid #4287f5;
   outline-offset: 1px;
 }
 
