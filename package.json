@@ -1,0 +1,49 @@
+{
+  "name": "icare",
+  "version": "1.0.0",
+  "description": "A retro-styled blink reminder desktop widget",
+  "main": "dist/main/index.js",
+  "author": "Faesel Saeed",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc && tsc -p src/renderer/tsconfig.json",
+    "dev": "tsc && tsc -p src/renderer/tsconfig.json && electron .",
+    "package:mac": "npm run build && electron-builder --mac",
+    "package:win": "npm run build && electron-builder --win"
+  },
+  "build": {
+    "appId": "com.faesel.icare",
+    "productName": "iCare",
+    "files": [
+      "dist/**/*",
+      "src/renderer/**/*",
+      "assets/**/*"
+    ],
+    "mac": {
+      "target": [
+        {
+          "target": "dmg",
+          "arch": ["x64", "arm64"]
+        }
+      ],
+      "category": "public.app-category.healthcare-fitness",
+      "icon": "assets/icons/icon.icns"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "assets/icons/icon.ico"
+    },
+    "nsis": {
+      "oneClick": true,
+      "allowToChangeInstallationDirectory": false
+    }
+  },
+  "devDependencies": {
+    "electron": "^33.0.0",
+    "electron-builder": "^25.0.0",
+    "typescript": "^5.6.0"
+  },
+  "dependencies": {
+    "electron-store": "^10.0.0"
+  }
+}

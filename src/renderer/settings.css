@@ -1,0 +1,119 @@
+@font-face {
+  font-family: 'DSEG7';
+  src: url('../../assets/fonts/DSEG7Classic-Bold.woff2') format('woff2'),
+       url('../../assets/fonts/DSEG7Classic-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  background: #0a0a0a;
+  color: #33ff33;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  font-size: 13px;
+  user-select: none;
+}
+
+#settings-panel {
+  padding: 16px 20px;
+}
+
+h1 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #33ff33;
+  letter-spacing: 0.5px;
+}
+
+.field {
+  margin-bottom: 14px;
+}
+
+.field label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 2px;
+  color: #33ff33;
+}
+
+.field .help {
+  display: block;
+  font-size: 11px;
+  color: #33ff33;
+  opacity: 0.5;
+  margin-bottom: 6px;
+}
+
+select, input[type="number"] {
+  width: 100%;
+  padding: 6px 8px;
+  background: #111;
+  color: #33ff33;
+  border: 1px solid #222;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: inherit;
+}
+
+select:focus, input:focus {
+  outline: none;
+  border-color: #33ff33;
+  box-shadow: 0 0 4px rgba(51, 255, 51, 0.3);
+}
+
+input[type="checkbox"] {
+  accent-color: #33ff33;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.actions button {
+  flex: 1;
+  padding: 7px 0;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: inherit;
+  border: 1px solid #222;
+  border-radius: 4px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+#save-btn {
+  background: #33ff33;
+  color: #0a0a0a;
+  border-color: #33ff33;
+}
+
+#save-btn:hover {
+  background: #44ff44;
+}
+
+#cancel-btn {
+  background: transparent;
+  color: #33ff33;
+}
+
+#cancel-btn:hover {
+  background: #111;
+}
+
+button:focus-visible {
+  outline: 2px solid #33ff33;
+  outline-offset: 1px;
+}

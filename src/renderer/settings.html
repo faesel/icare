@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self';">
+  <title>iCare — Settings</title>
+  <link rel="stylesheet" href="settings.css">
+</head>
+<body>
+  <div id="settings-panel">
+    <h1>⚙ Settings</h1>
+
+    <div class="field">
+      <label for="countdown-duration">Countdown duration</label>
+      <span class="help">How often you'd like to be reminded to blink</span>
+      <select id="countdown-duration">
+        <option value="10">10 seconds</option>
+        <option value="20" selected>20 seconds</option>
+        <option value="30">30 seconds</option>
+        <option value="45">45 seconds</option>
+        <option value="60">60 seconds</option>
+        <option value="120">2 minutes</option>
+        <option value="300">5 minutes</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label for="break-duration">Break duration</label>
+      <span class="help">How long to rest your eyes before the next countdown</span>
+      <select id="break-duration">
+        <option value="5">5 seconds</option>
+        <option value="10" selected>10 seconds</option>
+        <option value="15">15 seconds</option>
+        <option value="20">20 seconds</option>
+        <option value="30">30 seconds</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label for="launch-login">
+        <input type="checkbox" id="launch-login">
+        Start on login
+      </label>
+      <span class="help">Automatically launch iCare when you log in</span>
+    </div>
+
+    <div class="actions">
+      <button id="save-btn">Save</button>
+      <button id="cancel-btn">Cancel</button>
+    </div>
+  </div>
+  <script src="settings-renderer.js"></script>
+</body>
+</html>

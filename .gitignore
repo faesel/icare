@@ -1,0 +1,10 @@
+node_modules/
+dist/
+*.js.map
+.DS_Store
+Thumbs.db
+release/
+*.dmg
+*.exe
+*.AppImage
+src/renderer/*.js
