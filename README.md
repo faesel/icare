@@ -2,6 +2,24 @@
 
 A retro-styled desktop blink reminder. iCare sits as a small, always-on-top widget displaying a seven-segment countdown timer. When the countdown reaches zero, the widget flashes red to remind you to blink — then gives you a configurable break to rest your eyes.
 
+## Screenshots
+
+| Countdown | Alert | Break | Settings |
+|---|---|---|---|
+| ![Countdown](docs/screenshots/countdown.png) | ![Alert](docs/screenshots/alert.png) | ![Break](docs/screenshots/break.png) | ![Settings](docs/screenshots/settings.png) |
+
+<!-- To add your own screenshots:
+  1. Create the folder: mkdir -p docs/screenshots
+  2. Save your screenshots as:
+     - docs/screenshots/countdown.png  (green timer counting down)
+     - docs/screenshots/alert.png      (red flashing "BLINK" state)
+     - docs/screenshots/break.png      (blue resting countdown)
+     - docs/screenshots/settings.png   (settings panel)
+  3. Optionally add more:
+     - docs/screenshots/tray.png       (system tray menu)
+     - docs/screenshots/shake.png      (widget shaking)
+-->
+
 ## Features
 
 - **Retro LCD aesthetic** — green-phosphor seven-segment digits with ghost segments, scanlines, and a blinking colon
@@ -82,6 +100,9 @@ Click the ⚙ icon on the widget (appears on hover) or right-click the tray icon
 | Countdown duration | 20s | How often you're reminded to blink |
 | Break duration | 10s | How long the rest period lasts |
 | Start on login | Off | Auto-launch iCare when you log in |
+| Shake widget | On | Shake the widget on alert |
+| Ping sound | On | Audible ping when it's time to blink |
+| Pong sound | On | Audible pong when the break ends |
 
 ## Licence
 
