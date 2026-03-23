@@ -33,8 +33,8 @@ let currentSettings = loadSettings();
 
 function createMainWindow(): void {
   mainWindow = new BrowserWindow({
-    width: 220,
-    height: 80,
+    width: 200,
+    height: 70,
     frame: false,
     transparent: true,
     resizable: false,
@@ -49,7 +49,7 @@ function createMainWindow(): void {
   });
 
   const { width, height } = screen.getPrimaryDisplay().workAreaSize;
-  mainWindow.setPosition(width - 240, height - 100);
+  mainWindow.setPosition(width - 220, height - 90);
 
   if (process.platform === 'darwin') {
     mainWindow.setAlwaysOnTop(true, 'floating');

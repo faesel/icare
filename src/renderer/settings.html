@@ -12,29 +12,15 @@
     <h1>⚙ Settings</h1>
 
     <div class="field">
-      <label for="countdown-duration">Countdown duration</label>
+      <label for="countdown-duration">Countdown duration (seconds)</label>
       <span class="help">How often you'd like to be reminded to blink</span>
-      <select id="countdown-duration">
-        <option value="10">10 seconds</option>
-        <option value="20" selected>20 seconds</option>
-        <option value="30">30 seconds</option>
-        <option value="45">45 seconds</option>
-        <option value="60">60 seconds</option>
-        <option value="120">2 minutes</option>
-        <option value="300">5 minutes</option>
-      </select>
+      <input type="number" id="countdown-duration" min="5" max="3600" step="1" value="20" placeholder="e.g. 20">
     </div>
 
     <div class="field">
-      <label for="break-duration">Break duration</label>
+      <label for="break-duration">Break duration (seconds)</label>
       <span class="help">How long to rest your eyes before the next countdown</span>
-      <select id="break-duration">
-        <option value="5">5 seconds</option>
-        <option value="10" selected>10 seconds</option>
-        <option value="15">15 seconds</option>
-        <option value="20">20 seconds</option>
-        <option value="30">30 seconds</option>
-      </select>
+      <input type="number" id="break-duration" min="1" max="300" step="1" value="10" placeholder="e.g. 10">
     </div>
 
     <div class="field">
