@@ -4,6 +4,7 @@ export interface AppSettings {
   launchOnLogin: boolean;
   shakeOnAlert: boolean;
   soundOnAlert: boolean;
+  soundOnBreakEnd: boolean;
 }
 
 export const DEFAULT_SETTINGS: AppSettings = {
@@ -12,4 +13,5 @@ export const DEFAULT_SETTINGS: AppSettings = {
   launchOnLogin: false,
   shakeOnAlert: true,
   soundOnAlert: true,
+  soundOnBreakEnd: true,
 };

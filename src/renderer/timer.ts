@@ -5,6 +5,7 @@ interface TimerConfig {
   breakDuration: number;    // seconds
   shakeOnAlert: boolean;
   soundOnAlert: boolean;
+  soundOnBreakEnd: boolean;
 }
 
 const DEFAULT_CONFIG: TimerConfig = {
@@ -12,6 +13,7 @@ const DEFAULT_CONFIG: TimerConfig = {
   breakDuration: 10,
   shakeOnAlert: true,
   soundOnAlert: true,
+  soundOnBreakEnd: true,
 };
 
 class BlinkTimer {
@@ -22,6 +24,7 @@ class BlinkTimer {
   private colonVisible: boolean = true;
   private config: TimerConfig;
   private pingAudio: HTMLAudioElement;
+  private pongAudio: HTMLAudioElement;
 
   private timerEl: HTMLElement;
   private ghostEl: HTMLElement;
@@ -38,6 +41,7 @@ class BlinkTimer {
     this.breakBtn = document.getElementById('break-btn') as HTMLButtonElement;
     this.settingsBtn = document.getElementById('settings-btn') as HTMLButtonElement;
     this.pingAudio = new Audio('../../assets/ping.wav');
+    this.pongAudio = new Audio('../../assets/pong.wav');
 
     this.config = { ...DEFAULT_CONFIG };
     this.breakBtn.addEventListener('click', () => this.onBreakClick());
@@ -101,11 +105,17 @@ class BlinkTimer {
   }
 
   // State 1: Countdown
-  private enterCountdown(): void {
+  private enterCountdown(fromBreak: boolean = false): void {
     this.setWidgetState('countdown');
     this.colonVisible = true;
     this.ghostEl.textContent = this.ghostText(this.config.countdownDuration);
     this.labelEl.textContent = '';
+
+    if (fromBreak && this.config.soundOnBreakEnd) {
+      this.pongAudio.currentTime = 0;
+      this.pongAudio.play().catch(() => {});
+    }
+
     this.startTicking(this.config.countdownDuration, () => this.enterAlert());
   }
 
@@ -135,7 +145,7 @@ class BlinkTimer {
     this.ghostEl.textContent = this.ghostText(this.config.breakDuration);
     this.colonVisible = true;
     this.labelEl.textContent = 'resting';
-    this.startTicking(this.config.breakDuration, () => this.enterCountdown());
+    this.startTicking(this.config.breakDuration, () => this.enterCountdown(true));
   }
 
   private onBreakClick(): void {
@@ -167,7 +177,7 @@ class BlinkTimer {
     if (this.state === 'countdown') {
       this.startTicking(this.remaining || this.config.countdownDuration, () => this.enterAlert());
     } else if (this.state === 'break') {
-      this.startTicking(this.remaining || this.config.breakDuration, () => this.enterCountdown());
+      this.startTicking(this.remaining || this.config.breakDuration, () => this.enterCountdown(true));
     }
     this.labelEl.textContent = '';
   }

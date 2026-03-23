@@ -7,6 +7,7 @@ const brS = document.getElementById('break-s') as HTMLInputElement;
 const loginEl = document.getElementById('launch-login') as HTMLInputElement;
 const shakeEl = document.getElementById('shake-alert') as HTMLInputElement;
 const soundEl = document.getElementById('sound-alert') as HTMLInputElement;
+const soundBreakEndEl = document.getElementById('sound-break-end') as HTMLInputElement;
 const saveBtn = document.getElementById('save-btn') as HTMLButtonElement;
 const cancelBtn = document.getElementById('cancel-btn') as HTMLButtonElement;
 
@@ -46,6 +47,7 @@ if (api) {
     loginEl.checked = !!settings.launchOnLogin;
     shakeEl.checked = settings.shakeOnAlert !== false;
     soundEl.checked = settings.soundOnAlert !== false;
+    soundBreakEndEl.checked = settings.soundOnBreakEnd !== false;
   });
 }
 
@@ -67,6 +69,7 @@ saveBtn.addEventListener('click', () => {
     launchOnLogin: loginEl.checked,
     shakeOnAlert: shakeEl.checked,
     soundOnAlert: soundEl.checked,
+    soundOnBreakEnd: soundBreakEndEl.checked,
   };
   if (api) {
     api.send('settings:set', settings);
