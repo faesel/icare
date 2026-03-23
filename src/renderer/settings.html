@@ -12,15 +12,45 @@
     <h1>⚙ Settings</h1>
 
     <div class="field">
-      <label for="countdown-duration">Countdown duration (seconds)</label>
+      <label>Countdown duration</label>
       <span class="help">How often you'd like to be reminded to blink</span>
-      <input type="number" id="countdown-duration" min="5" max="3600" step="1" value="20" placeholder="e.g. 20">
+      <div class="time-inputs" id="countdown-group">
+        <div class="time-unit">
+          <input type="number" id="countdown-h" min="0" max="23" value="0" aria-label="Hours">
+          <span class="unit-label">hrs</span>
+        </div>
+        <span class="time-sep">:</span>
+        <div class="time-unit">
+          <input type="number" id="countdown-m" min="0" max="59" value="0" aria-label="Minutes">
+          <span class="unit-label">min</span>
+        </div>
+        <span class="time-sep">:</span>
+        <div class="time-unit">
+          <input type="number" id="countdown-s" min="0" max="59" value="20" aria-label="Seconds">
+          <span class="unit-label">sec</span>
+        </div>
+      </div>
     </div>
 
     <div class="field">
-      <label for="break-duration">Break duration (seconds)</label>
+      <label>Break duration</label>
       <span class="help">How long to rest your eyes before the next countdown</span>
-      <input type="number" id="break-duration" min="1" max="300" step="1" value="10" placeholder="e.g. 10">
+      <div class="time-inputs" id="break-group">
+        <div class="time-unit">
+          <input type="number" id="break-h" min="0" max="23" value="0" aria-label="Hours">
+          <span class="unit-label">hrs</span>
+        </div>
+        <span class="time-sep">:</span>
+        <div class="time-unit">
+          <input type="number" id="break-m" min="0" max="59" value="0" aria-label="Minutes">
+          <span class="unit-label">min</span>
+        </div>
+        <span class="time-sep">:</span>
+        <div class="time-unit">
+          <input type="number" id="break-s" min="0" max="59" value="10" aria-label="Seconds">
+          <span class="unit-label">sec</span>
+        </div>
+      </div>
     </div>
 
     <div class="field">

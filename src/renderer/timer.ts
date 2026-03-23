@@ -41,12 +41,19 @@ class BlinkTimer {
   }
 
   private formatTime(seconds: number): string {
-    const m = Math.floor(seconds / 60);
+    const h = Math.floor(seconds / 3600);
+    const m = Math.floor((seconds % 3600) / 60);
     const s = seconds % 60;
-    const mm = String(m).padStart(2, '0');
-    const ss = String(s).padStart(2, '0');
     const colon = this.colonVisible ? ':' : ' ';
-    return `${mm}${colon}${ss}`;
+    if (h > 0) {
+      return `${h}${colon}${String(m).padStart(2, '0')}${colon}${String(s).padStart(2, '0')}`;
+    }
+    return `${String(m).padStart(2, '0')}${colon}${String(s).padStart(2, '0')}`;
+  }
+
+  private ghostText(seconds: number): string {
+    if (seconds >= 3600) return '8:88:88';
+    return '88:88';
   }
 
   private updateDisplay(): void {
@@ -91,6 +98,7 @@ class BlinkTimer {
   private enterCountdown(): void {
     this.setWidgetState('countdown');
     this.colonVisible = true;
+    this.ghostEl.textContent = this.ghostText(this.config.countdownDuration);
     this.labelEl.textContent = '';
     this.startTicking(this.config.countdownDuration, () => this.enterAlert());
   }
@@ -108,7 +116,7 @@ class BlinkTimer {
   // State 3: Break
   private enterBreak(): void {
     this.setWidgetState('break');
-    this.ghostEl.textContent = '88:88';
+    this.ghostEl.textContent = this.ghostText(this.config.breakDuration);
     this.colonVisible = true;
     this.labelEl.textContent = 'resting';
     this.startTicking(this.config.breakDuration, () => this.enterCountdown());
