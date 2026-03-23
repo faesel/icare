@@ -1,8 +1,12 @@
-# iCare 👁️
+# 👁️ iCare
 
-A retro-styled desktop blink reminder. iCare sits as a small, always-on-top widget displaying a seven-segment countdown timer. When the countdown reaches zero, the widget flashes red to remind you to blink — then gives you a configurable break to rest your eyes.
+> 🖥️ A retro-styled desktop blink reminder that keeps your eyes happy.
 
-## Screenshots
+iCare sits as a small, always-on-top widget displaying a seven-segment countdown timer. When the countdown reaches zero, the widget flashes red 🔴 to remind you to blink — then gives you a configurable break to rest your eyes 😌.
+
+---
+
+## 📸 Screenshots
 
 | Countdown | Alert | Break | Settings |
 |---|---|---|---|
@@ -20,16 +24,21 @@ A retro-styled desktop blink reminder. iCare sits as a small, always-on-top widg
      - docs/screenshots/shake.png      (widget shaking)
 -->
 
-## Features
+---
 
-- **Retro LCD aesthetic** — green-phosphor seven-segment digits with ghost segments, scanlines, and a blinking colon
-- **Three-state cycle** — Countdown → Alert (flash red, wait for click) → Break (rest your eyes) → repeat
-- **Configurable** — countdown duration, break duration, start on login
-- **System tray** — show/hide, pause/resume, settings, quit
-- **Cross-platform** — macOS and Windows
-- **Lightweight** — frameless, transparent, always-on-top, no dock/taskbar clutter
+## ✨ Features
 
-## Getting Started
+- 🟢 **Retro LCD aesthetic** — green-phosphor seven-segment digits with ghost segments, scanlines, and a blinking colon
+- 🔄 **Three-state cycle** — Countdown → Alert (flash red, wait for click) → Break (rest your eyes) → repeat
+- ⚙️ **Configurable** — countdown duration, break duration, start on login
+- 🔔 **Alert effects** — optional shake animation, ping sound on alert, and pong sound when break ends
+- 🖱️ **System tray** — show/hide, pause/resume, settings, quit
+- 💻 **Cross-platform** — macOS and Windows
+- 🪶 **Lightweight** — frameless, transparent, always-on-top, no dock/taskbar clutter
+
+---
+
+## 🚀 Getting Started
 
 ```bash
 # Install dependencies
@@ -42,21 +51,25 @@ npm run dev
 npm run build
 ```
 
-## Packaging
+---
+
+## 📦 Packaging
 
 ```bash
-# macOS (DMG)
+# 🍎 macOS (DMG)
 npm run package:mac
 
-# Windows (NSIS installer)
+# 🪟 Windows (NSIS installer)
 npm run package:win
 ```
 
-## Creating a Release
+---
+
+## 🏷️ Creating a Release
 
 Releases are built automatically via GitHub Actions. To create a new release:
 
-### 1. Tag the version
+### 1️⃣ Tag the version
 
 ```bash
 # Update the version in package.json first, then:
@@ -66,7 +79,7 @@ git tag v1.0.1
 git push origin main --tags
 ```
 
-### 2. Create the GitHub release
+### 2️⃣ Create the GitHub release
 
 Using the GitHub CLI:
 
@@ -80,30 +93,34 @@ Or via the GitHub web UI:
 2. Click **Draft a new release**
 3. Choose the tag you just pushed (e.g. `v1.0.1`)
 4. Add a title and description
-5. Click **Publish release**
+5. Click **Publish release** 🎉
 
-### 3. What happens next
+### 3️⃣ What happens next
 
 Once the release is published, the CI workflow (`.github/workflows/release.yml`) automatically:
 
-- **macOS job** — builds on `macos-latest`, packages a `.dmg`, and uploads it to the release
-- **Windows job** — builds on `windows-latest`, packages an `.exe` NSIS installer, and uploads it to the release
+- 🍎 **macOS job** — builds on `macos-latest`, packages a `.dmg`, and uploads it to the release
+- 🪟 **Windows job** — builds on `windows-latest`, packages an `.exe` NSIS installer, and uploads it to the release
 
 Both jobs run in parallel. After a few minutes the built artefacts will appear as downloadable assets on the release page.
 
-## Configuration
+---
+
+## ⚙️ Configuration
 
 Click the ⚙ icon on the widget (appears on hover) or right-click the tray icon → Settings.
 
 | Setting | Default | Description |
 |---|---|---|
-| Countdown duration | 20s | How often you're reminded to blink |
-| Break duration | 10s | How long the rest period lasts |
-| Start on login | Off | Auto-launch iCare when you log in |
-| Shake widget | On | Shake the widget on alert |
-| Ping sound | On | Audible ping when it's time to blink |
-| Pong sound | On | Audible pong when the break ends |
+| ⏱️ Countdown duration | 20s | How often you're reminded to blink |
+| 😌 Break duration | 10s | How long the rest period lasts |
+| 🔁 Start on login | Off | Auto-launch iCare when you log in |
+| 📳 Shake widget | On | Shake the widget on alert |
+| 🔔 Ping sound | On | Audible ping when it's time to blink |
+| 🔕 Pong sound | On | Audible pong when the break ends |
 
-## Licence
+---
 
-MIT
+## 📄 Licence
+
+This project is licensed under the [MIT Licence](LICENCE).
