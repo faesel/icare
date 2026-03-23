@@ -3,11 +3,15 @@ type TimerState = 'countdown' | 'alert' | 'break';
 interface TimerConfig {
   countdownDuration: number; // seconds
   breakDuration: number;    // seconds
+  shakeOnAlert: boolean;
+  soundOnAlert: boolean;
 }
 
 const DEFAULT_CONFIG: TimerConfig = {
   countdownDuration: 20,
   breakDuration: 10,
+  shakeOnAlert: true,
+  soundOnAlert: true,
 };
 
 class BlinkTimer {
@@ -17,6 +21,7 @@ class BlinkTimer {
   private tickInterval: number | null = null;
   private colonVisible: boolean = true;
   private config: TimerConfig;
+  private pingAudio: HTMLAudioElement;
 
   private timerEl: HTMLElement;
   private ghostEl: HTMLElement;
@@ -32,6 +37,7 @@ class BlinkTimer {
     this.widgetEl = document.getElementById('widget')!;
     this.breakBtn = document.getElementById('break-btn') as HTMLButtonElement;
     this.settingsBtn = document.getElementById('settings-btn') as HTMLButtonElement;
+    this.pingAudio = new Audio('../../assets/ping.wav');
 
     this.config = { ...DEFAULT_CONFIG };
     this.breakBtn.addEventListener('click', () => this.onBreakClick());
@@ -89,7 +95,7 @@ class BlinkTimer {
   }
 
   private setWidgetState(state: TimerState): void {
-    this.widgetEl.classList.remove('state-countdown', 'state-alert', 'state-break');
+    this.widgetEl.classList.remove('state-countdown', 'state-alert', 'state-break', 'shake');
     this.widgetEl.classList.add(`state-${state}`);
     this.state = state;
   }
@@ -106,6 +112,16 @@ class BlinkTimer {
   // State 2: Alert — waits for user click
   private enterAlert(): void {
     this.setWidgetState('alert');
+
+    if (this.config.shakeOnAlert) {
+      this.widgetEl.classList.add('shake');
+    }
+
+    if (this.config.soundOnAlert) {
+      this.pingAudio.currentTime = 0;
+      this.pingAudio.play().catch(() => {});
+    }
+
     this.remaining = 0;
     this.colonVisible = true;
     this.timerEl.textContent = 'BLINK';

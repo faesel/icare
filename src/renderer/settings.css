@@ -33,6 +33,19 @@ h1 {
   letter-spacing: 0.5px;
 }
 
+h2 {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #33ff33;
+  letter-spacing: 0.5px;
+}
+
+.divider {
+  border-top: 1px solid #222;
+  margin: 14px 0;
+}
+
 .field {
   margin-bottom: 14px;
 }

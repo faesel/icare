@@ -5,6 +5,8 @@ const brH = document.getElementById('break-h') as HTMLInputElement;
 const brM = document.getElementById('break-m') as HTMLInputElement;
 const brS = document.getElementById('break-s') as HTMLInputElement;
 const loginEl = document.getElementById('launch-login') as HTMLInputElement;
+const shakeEl = document.getElementById('shake-alert') as HTMLInputElement;
+const soundEl = document.getElementById('sound-alert') as HTMLInputElement;
 const saveBtn = document.getElementById('save-btn') as HTMLButtonElement;
 const cancelBtn = document.getElementById('cancel-btn') as HTMLButtonElement;
 
@@ -42,6 +44,8 @@ if (api) {
     brS.value = String(br.s);
 
     loginEl.checked = !!settings.launchOnLogin;
+    shakeEl.checked = settings.shakeOnAlert !== false;
+    soundEl.checked = settings.soundOnAlert !== false;
   });
 }
 
@@ -61,6 +65,8 @@ saveBtn.addEventListener('click', () => {
     countdownDuration: Math.max(1, countdown),
     breakDuration: Math.max(1, breakDur),
     launchOnLogin: loginEl.checked,
+    shakeOnAlert: shakeEl.checked,
+    soundOnAlert: soundEl.checked,
   };
   if (api) {
     api.send('settings:set', settings);
