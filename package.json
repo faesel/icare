@@ -30,7 +30,10 @@
         }
       ],
       "category": "public.app-category.healthcare-fitness",
-      "icon": "assets/icons/icon.icns"
+      "icon": "assets/icons/icon.icns",
+      "extendInfo": {
+        "LSUIElement": true
+      }
     },
     "win": {
       "target": "nsis",
