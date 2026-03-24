@@ -1,8 +1,8 @@
 # 👁️ iCare
 
-> 🖥️ A retro-styled desktop blink reminder that keeps your eyes happy.
+> 🖥️ A dead-simple, no-frills desktop blink reminder. Nothing fancy — just a tiny timer that tells you to blink.
 
-iCare sits as a small, always-on-top widget displaying a seven-segment countdown timer. When the countdown reaches zero, the widget flashes red 🔴 to remind you to blink — then gives you a configurable break to rest your eyes 😌.
+No accounts. No cloud sync. No analytics. No bloat. Just a small always-on-top widget with a retro seven-segment countdown. When it hits zero, it flashes red — you blink, take a short break, and the cycle starts again. That's it.
 
 ---
 
