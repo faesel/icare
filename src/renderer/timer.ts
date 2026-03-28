@@ -196,6 +196,12 @@ interface Window {
 // Boot
 const timer = new BlinkTimer();
 
+// Tag the html element with the platform so CSS can target Windows-specific
+// rendering quirks (transparent window compositing differs from macOS).
+if (navigator.userAgent.includes('Windows')) {
+  document.documentElement.classList.add('platform-win32');
+}
+
 // Listen for settings updates from main process
 if ((window as any).icare) {
   (window as any).icare.on('settings:updated', (config: unknown) => {
