@@ -17,6 +17,9 @@ html, body {
   overflow: hidden;
   background: transparent;
   user-select: none;
+  /* Padding gives the box-shadow glow room to render inside the window
+     boundary, preventing green corner bleed on Windows */
+  padding: 10px;
 }
 
 #widget {

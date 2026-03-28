@@ -58,8 +58,8 @@ function getAppIcon(): Electron.NativeImage {
 
 function createMainWindow(): void {
   mainWindow = new BrowserWindow({
-    width: 200,
-    height: 70,
+    width: 220,
+    height: 90,
     icon: getAppIcon(),
     frame: false,
     transparent: true,
@@ -76,7 +76,7 @@ function createMainWindow(): void {
   });
 
   const { width, height } = screen.getPrimaryDisplay().workAreaSize;
-  mainWindow.setPosition(width - 220, height - 90);
+  mainWindow.setPosition(width - 230, height - 100);
 
   if (process.platform === 'darwin') {
     mainWindow.setAlwaysOnTop(true, 'floating');
