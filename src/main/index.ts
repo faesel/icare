@@ -193,10 +193,7 @@ ipcMain.on('settings:close', () => {
 
 // --- App lifecycle ---
 
-// Hide dock icon immediately (before app is ready) to avoid the brief flash
-if (process.platform === 'darwin' && app.dock) {
-  app.dock.hide();
-}
+
 
 app.whenReady().then(() => {
   createMainWindow();
