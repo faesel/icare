@@ -1,6 +1,6 @@
 {
   "name": "icare",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "A retro-styled blink reminder desktop widget",
   "main": "dist/main/index.js",
   "author": "Faesel Saeed",
@@ -49,8 +49,5 @@
     "electron": "^41.1.0",
     "electron-builder": "^26.8.1",
     "typescript": "^6.0.2"
-  },
-  "dependencies": {
-    "electron-store": "^11.0.2"
   }
 }

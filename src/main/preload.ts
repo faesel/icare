@@ -21,9 +21,12 @@ contextBridge.exposeInMainWorld('icare', {
       ipcRenderer.send(channel, ...args);
     }
   },
-  on: (channel: string, callback: (...args: unknown[]) => void) => {
+  on: (channel: string, callback: (...args: unknown[]) => void): (() => void) | undefined => {
     if (RECEIVE_CHANNELS.includes(channel)) {
-      ipcRenderer.on(channel, (_event, ...args) => callback(...args));
+      const handler = (_event: Electron.IpcRendererEvent, ...args: unknown[]) => callback(...args);
+      ipcRenderer.on(channel, handler);
+      return () => ipcRenderer.removeListener(channel, handler);
     }
+    return undefined;
   },
 });

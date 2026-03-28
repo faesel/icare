@@ -23,8 +23,24 @@ function loadSettings(): AppSettings {
   }
 }
 
-function saveSettings(settings: AppSettings): void {
-  fs.writeFileSync(settingsPath(), JSON.stringify(settings, null, 2), 'utf-8');
+async function saveSettings(settings: AppSettings): Promise<void> {
+  await fs.promises.writeFile(settingsPath(), JSON.stringify(settings, null, 2), 'utf-8');
+}
+
+function validateSettings(input: unknown): AppSettings | null {
+  if (typeof input !== 'object' || input === null) return null;
+  const s = input as Record<string, unknown>;
+
+  return {
+    countdownDuration: typeof s.countdownDuration === 'number'
+      ? Math.max(1, Math.min(86400, Math.floor(s.countdownDuration))) : DEFAULT_SETTINGS.countdownDuration,
+    breakDuration: typeof s.breakDuration === 'number'
+      ? Math.max(1, Math.min(86400, Math.floor(s.breakDuration))) : DEFAULT_SETTINGS.breakDuration,
+    launchOnLogin: typeof s.launchOnLogin === 'boolean' ? s.launchOnLogin : DEFAULT_SETTINGS.launchOnLogin,
+    shakeOnAlert: typeof s.shakeOnAlert === 'boolean' ? s.shakeOnAlert : DEFAULT_SETTINGS.shakeOnAlert,
+    soundOnAlert: typeof s.soundOnAlert === 'boolean' ? s.soundOnAlert : DEFAULT_SETTINGS.soundOnAlert,
+    soundOnBreakEnd: typeof s.soundOnBreakEnd === 'boolean' ? s.soundOnBreakEnd : DEFAULT_SETTINGS.soundOnBreakEnd,
+  };
 }
 
 let currentSettings = loadSettings();
@@ -44,6 +60,7 @@ function createMainWindow(): void {
     webPreferences: {
       contextIsolation: true,
       nodeIntegration: false,
+      sandbox: true,
       preload: path.join(__dirname, 'preload.js'),
     },
   });
@@ -85,6 +102,7 @@ function createSettingsWindow(): void {
     webPreferences: {
       contextIsolation: true,
       nodeIntegration: false,
+      sandbox: true,
       preload: path.join(__dirname, 'preload.js'),
     },
   });
@@ -163,8 +181,11 @@ ipcMain.on('settings:get', (event) => {
   event.sender.send('settings:current', currentSettings);
 });
 
-ipcMain.on('settings:set', (_event, settings: AppSettings) => {
-  currentSettings = { ...DEFAULT_SETTINGS, ...settings };
+ipcMain.on('settings:set', (_event, settings: unknown) => {
+  const validated = validateSettings(settings);
+  if (!validated) return;
+
+  currentSettings = validated;
   saveSettings(currentSettings);
 
   // Only set login items in packaged builds — unpacked dev builds lack the required entitlement
