@@ -45,12 +45,22 @@ function validateSettings(input: unknown): AppSettings | null {
 
 let currentSettings = loadSettings();
 
+// --- App icon ---
+
+function getAppIcon(): Electron.NativeImage {
+  const iconFile = process.platform === 'win32' ? 'icon.ico' : 'icon.png';
+  return nativeImage.createFromPath(
+    path.join(__dirname, '..', '..', 'assets', 'icons', iconFile)
+  );
+}
+
 // --- Windows ---
 
 function createMainWindow(): void {
   mainWindow = new BrowserWindow({
     width: 200,
     height: 70,
+    icon: getAppIcon(),
     frame: false,
     transparent: true,
     resizable: false,
@@ -93,6 +103,7 @@ function createSettingsWindow(): void {
   settingsWindow = new BrowserWindow({
     width: 320,
     height: 470,
+    icon: getAppIcon(),
     frame: true,
     resizable: false,
     alwaysOnTop: true,
@@ -122,13 +133,7 @@ function createSettingsWindow(): void {
 // --- System tray ---
 
 function createTray(): void {
-  // Simple 16x16 tray icon (green circle)
-  const icon = nativeImage.createFromBuffer(
-    Buffer.from(
-      'iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAOklEQVQ4T2Nk+M/wn4EBBZiYmBgZsckzMjIy4lXAQIwBDKMGMIwaQHIYjIYBaWFAcjLCFY+kZAQAx4UJEab33xUAAAAASUVORK5CYII=',
-      'base64'
-    )
-  );
+  const icon = getAppIcon().resize({ width: 16, height: 16 });
 
   tray = new Tray(icon);
   tray.setToolTip('iCare — Blink Reminder');
