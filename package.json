@@ -37,7 +37,15 @@
       "extendInfo": {}
     },
     "win": {
-      "target": "nsis",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        }
+      ],
       "icon": "assets/icons/icon.ico"
     },
     "nsis": {
