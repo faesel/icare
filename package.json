@@ -1,6 +1,6 @@
 {
   "name": "icare",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "A retro-styled blink reminder desktop widget",
   "main": "dist/main/index.js",
   "author": "Faesel Saeed",
@@ -26,7 +26,10 @@
       "target": [
         {
           "target": "dmg",
-          "arch": ["x64", "arm64"]
+          "arch": [
+            "x64",
+            "arm64"
+          ]
         }
       ],
       "category": "public.app-category.healthcare-fitness",
