@@ -82,6 +82,12 @@ cancelBtn.addEventListener('click', () => {
   }
 });
 
+// Display version
+const versionEl = document.getElementById('version-info');
+if (api && versionEl) {
+  versionEl.textContent = `v${api.getVersion()}`;
+}
+
 // Close on Escape
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {

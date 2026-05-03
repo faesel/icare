@@ -29,4 +29,5 @@ contextBridge.exposeInMainWorld('icare', {
     }
     return undefined;
   },
+  getVersion: (): string => ipcRenderer.sendSync('app:version'),
 });

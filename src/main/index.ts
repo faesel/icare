@@ -182,6 +182,10 @@ function updateTrayMenu(): void {
 
 // --- IPC handlers ---
 
+ipcMain.on('app:version', (event) => {
+  event.returnValue = app.getVersion();
+});
+
 ipcMain.on('settings:get', (event) => {
   event.sender.send('settings:current', currentSettings);
 });
