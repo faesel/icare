@@ -224,6 +224,8 @@ html, body {
   cursor: pointer;
   letter-spacing: 0.5px;
   text-transform: uppercase;
+  text-align: center;
+  width: 116px;
   z-index: 20;
 }
 
@@ -238,6 +240,14 @@ html, body {
 
 #widget.state-alert #break-btn {
   display: block;
+}
+
+/* In the alert state the bottom-anchored button is the call to action, so
+   lift the alert word to the top of the widget to give it clear separation
+   from the button (identical for both BLINK and stretch alerts). */
+#widget.state-alert {
+  justify-content: flex-start;
+  padding-top: 8px;
 }
 
 /* The button is the call to action in the alert state, so hide the

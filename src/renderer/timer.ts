@@ -246,7 +246,7 @@ class BlinkTimer {
     } else {
       this.timerEl.textContent = 'BLINK';
       this.labelEl.textContent = 'look away';
-      this.breakBtn.textContent = 'Start Break';
+      this.breakBtn.textContent = 'Start Rest';
       this.breakBtn.title = 'Start your eye break';
     }
   }

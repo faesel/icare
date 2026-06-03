@@ -138,7 +138,8 @@ function createSettingsWindow(): void {
 // --- System tray ---
 
 function createTray(): void {
-  const icon = getAppIcon().resize({ width: 16, height: 16 });
+  const trayIconPath = path.join(__dirname, '..', '..', 'assets', 'icons', 'tray-icon.png');
+  const icon = nativeImage.createFromPath(trayIconPath).resize({ width: 16, height: 16 });
 
   tray = new Tray(icon);
   tray.setToolTip('iCare — Blink Reminder');
