@@ -160,28 +160,48 @@ html, body {
   }
 }
 
-/* State: break — calm blue */
-#widget.state-break {
+/* State: break — calm blue for eye breaks */
+#widget.state-break.kind-eye {
   box-shadow:
     inset 0 2px 6px rgba(0, 0, 0, 0.7),
     0 0 10px rgba(66, 135, 245, 0.15);
 }
 
-#widget.state-break #timer,
-#widget.state-break #ghost {
+#widget.state-break.kind-eye #timer,
+#widget.state-break.kind-eye #ghost {
   color: #4287f5;
 }
 
-#widget.state-break #timer {
+#widget.state-break.kind-eye #timer {
   text-shadow: 0 0 8px rgba(66, 135, 245, 0.5);
+}
+
+#widget.state-break.kind-eye #label {
+  color: #5a9cf5;
+}
+
+/* State: break — warm amber for stretch (walk-away) breaks */
+#widget.state-break.kind-walkaway {
+  box-shadow:
+    inset 0 2px 6px rgba(0, 0, 0, 0.7),
+    0 0 10px rgba(255, 179, 0, 0.18);
+}
+
+#widget.state-break.kind-walkaway #timer,
+#widget.state-break.kind-walkaway #ghost {
+  color: #ffb300;
+}
+
+#widget.state-break.kind-walkaway #timer {
+  text-shadow: 0 0 8px rgba(255, 179, 0, 0.5);
+}
+
+#widget.state-break.kind-walkaway #label {
+  color: #ffc740;
 }
 
 #widget.state-break #ghost {
   opacity: 0.08;
-}
-
-#widget.state-break #label {
-  color: #5a9cf5;
 }
 
 /* Break button */
@@ -192,6 +212,7 @@ html, body {
   bottom: 6px;
   left: 50%;
   transform: translateX(-50%);
+  white-space: nowrap;
   font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
   font-size: 10px;
   font-weight: 600;
@@ -219,7 +240,13 @@ html, body {
   display: block;
 }
 
-/* Settings button */
+/* The button is the call to action in the alert state, so hide the
+   redundant prompt label that would otherwise sit behind it. */
+#widget.state-alert #label {
+  display: none;
+}
+
+/* Settings button — always visible so it's easy to find */
 #settings-btn {
   -webkit-app-region: no-drag;
   position: absolute;
@@ -230,7 +257,7 @@ html, body {
   background: none;
   border: none;
   cursor: pointer;
-  opacity: 0;
+  opacity: 0.6;
   transition: opacity 0.2s;
   z-index: 20;
   line-height: 1;
@@ -238,7 +265,7 @@ html, body {
 }
 
 #widget:hover #settings-btn {
-  opacity: 0.6;
+  opacity: 0.85;
 }
 
 #settings-btn:hover {

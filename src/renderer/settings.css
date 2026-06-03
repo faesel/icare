@@ -19,6 +19,7 @@ html, body {
   font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
   font-size: 13px;
   user-select: none;
+  overflow-y: auto;
 }
 
 #settings-panel {
@@ -39,6 +40,58 @@ h2 {
   margin-bottom: 10px;
   color: #33ff33;
   letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.group-icon {
+  font-size: 14px;
+  line-height: 1;
+}
+
+/* Grouped, card-style sections with a colour accent per area */
+.group {
+  position: relative;
+  background: #0d0d0d;
+  border: 1px solid #1d1d1d;
+  border-left: 3px solid #333;
+  border-radius: 6px;
+  padding: 12px 14px 2px;
+  margin-bottom: 14px;
+}
+
+.group > h2 {
+  margin-bottom: 12px;
+}
+
+.group .field:last-child {
+  margin-bottom: 12px;
+}
+
+.group-eye {
+  border-left-color: #4287f5;
+}
+.group-eye > h2 {
+  color: #6ea4ff;
+}
+
+.group-stretch {
+  border-left-color: #ffb300;
+}
+.group-stretch > h2 {
+  color: #ffc740;
+}
+
+.group-general {
+  border-left-color: #33ff33;
+}
+
+.group-alert {
+  border-left-color: #ff4444;
+}
+.group-alert > h2 {
+  color: #ff6666;
 }
 
 .divider {
@@ -91,6 +144,14 @@ input[type="number"]::-webkit-outer-spin-button {
   display: flex;
   align-items: center;
   gap: 4px;
+}
+
+.time-inputs.disabled {
+  opacity: 0.4;
+}
+
+input[type="number"]:disabled {
+  cursor: not-allowed;
 }
 
 .time-unit {

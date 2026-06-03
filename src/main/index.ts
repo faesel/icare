@@ -36,6 +36,11 @@ function validateSettings(input: unknown): AppSettings | null {
       ? Math.max(1, Math.min(86400, Math.floor(s.countdownDuration))) : DEFAULT_SETTINGS.countdownDuration,
     breakDuration: typeof s.breakDuration === 'number'
       ? Math.max(1, Math.min(86400, Math.floor(s.breakDuration))) : DEFAULT_SETTINGS.breakDuration,
+    walkAwayEnabled: typeof s.walkAwayEnabled === 'boolean' ? s.walkAwayEnabled : DEFAULT_SETTINGS.walkAwayEnabled,
+    walkAwayInterval: typeof s.walkAwayInterval === 'number'
+      ? Math.max(1, Math.min(86400, Math.floor(s.walkAwayInterval))) : DEFAULT_SETTINGS.walkAwayInterval,
+    walkAwayDuration: typeof s.walkAwayDuration === 'number'
+      ? Math.max(1, Math.min(86400, Math.floor(s.walkAwayDuration))) : DEFAULT_SETTINGS.walkAwayDuration,
     launchOnLogin: typeof s.launchOnLogin === 'boolean' ? s.launchOnLogin : DEFAULT_SETTINGS.launchOnLogin,
     shakeOnAlert: typeof s.shakeOnAlert === 'boolean' ? s.shakeOnAlert : DEFAULT_SETTINGS.shakeOnAlert,
     soundOnAlert: typeof s.soundOnAlert === 'boolean' ? s.soundOnAlert : DEFAULT_SETTINGS.soundOnAlert,
@@ -101,8 +106,8 @@ function createSettingsWindow(): void {
   }
 
   settingsWindow = new BrowserWindow({
-    width: 320,
-    height: 470,
+    width: 340,
+    height: 800,
     icon: getAppIcon(),
     frame: true,
     resizable: false,

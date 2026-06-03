@@ -11,82 +11,145 @@
   <div id="settings-panel">
     <h1>⚙ Settings</h1>
 
-    <div class="field">
-      <label>Countdown duration</label>
-      <span class="help">How often you'd like to be reminded to blink</span>
-      <div class="time-inputs" id="countdown-group">
-        <div class="time-unit">
-          <input type="number" id="countdown-h" min="0" max="23" value="0" aria-label="Hours">
-          <span class="unit-label">hrs</span>
-        </div>
-        <span class="time-sep">:</span>
-        <div class="time-unit">
-          <input type="number" id="countdown-m" min="0" max="59" value="0" aria-label="Minutes">
-          <span class="unit-label">min</span>
-        </div>
-        <span class="time-sep">:</span>
-        <div class="time-unit">
-          <input type="number" id="countdown-s" min="0" max="59" value="20" aria-label="Seconds">
-          <span class="unit-label">sec</span>
-        </div>
-      </div>
-    </div>
+    <section class="group group-eye">
+      <h2><span class="group-icon">👁️</span> Eye break</h2>
 
-    <div class="field">
-      <label>Break duration</label>
-      <span class="help">How long to rest your eyes before the next countdown</span>
-      <div class="time-inputs" id="break-group">
-        <div class="time-unit">
-          <input type="number" id="break-h" min="0" max="23" value="0" aria-label="Hours">
-          <span class="unit-label">hrs</span>
-        </div>
-        <span class="time-sep">:</span>
-        <div class="time-unit">
-          <input type="number" id="break-m" min="0" max="59" value="0" aria-label="Minutes">
-          <span class="unit-label">min</span>
-        </div>
-        <span class="time-sep">:</span>
-        <div class="time-unit">
-          <input type="number" id="break-s" min="0" max="59" value="10" aria-label="Seconds">
-          <span class="unit-label">sec</span>
+      <div class="field">
+        <label>Eye break every</label>
+        <span class="help">How often you'd like to be reminded to blink and look away</span>
+        <div class="time-inputs" id="countdown-group">
+          <div class="time-unit">
+            <input type="number" id="countdown-h" min="0" max="23" value="0" aria-label="Eye break interval hours">
+            <span class="unit-label">hrs</span>
+          </div>
+          <span class="time-sep">:</span>
+          <div class="time-unit">
+            <input type="number" id="countdown-m" min="0" max="59" value="0" aria-label="Eye break interval minutes">
+            <span class="unit-label">min</span>
+          </div>
+          <span class="time-sep">:</span>
+          <div class="time-unit">
+            <input type="number" id="countdown-s" min="0" max="59" value="20" aria-label="Eye break interval seconds">
+            <span class="unit-label">sec</span>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="field">
-      <label for="launch-login">
-        <input type="checkbox" id="launch-login">
-        Start on login
-      </label>
-      <span class="help">Automatically launch iCare when you log in</span>
-    </div>
+      <div class="field">
+        <label>Eye break lasts</label>
+        <span class="help">How long to rest your eyes before the next countdown</span>
+        <div class="time-inputs" id="break-group">
+          <div class="time-unit">
+            <input type="number" id="break-h" min="0" max="23" value="0" aria-label="Eye break length hours">
+            <span class="unit-label">hrs</span>
+          </div>
+          <span class="time-sep">:</span>
+          <div class="time-unit">
+            <input type="number" id="break-m" min="0" max="59" value="0" aria-label="Eye break length minutes">
+            <span class="unit-label">min</span>
+          </div>
+          <span class="time-sep">:</span>
+          <div class="time-unit">
+            <input type="number" id="break-s" min="0" max="59" value="10" aria-label="Eye break length seconds">
+            <span class="unit-label">sec</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <div class="divider"></div>
-    <h2>Alert effects</h2>
+    <section class="group group-stretch">
+      <h2><span class="group-icon">🚶</span> Stretch break</h2>
 
-    <div class="field">
-      <label for="shake-alert">
-        <input type="checkbox" id="shake-alert" checked>
-        Shake widget
-      </label>
-      <span class="help">Shake the widget when it's time to blink</span>
-    </div>
+      <div class="field">
+        <label for="walkaway-enabled">
+          <input type="checkbox" id="walkaway-enabled">
+          Enable stretch breaks
+        </label>
+        <span class="help">Remind you to stand up and walk away from the keyboard</span>
+      </div>
 
-    <div class="field">
-      <label for="sound-alert">
-        <input type="checkbox" id="sound-alert" checked>
-        Play ping sound
-      </label>
-      <span class="help">Play an audible ping when it's time to blink</span>
-    </div>
+      <div class="field">
+        <label>Stretch break every</label>
+        <span class="help">How often you'd like to be reminded to stand up and stretch</span>
+        <div class="time-inputs" id="walkaway-interval-group">
+          <div class="time-unit">
+            <input type="number" id="walkaway-interval-h" min="0" max="23" value="1" aria-label="Stretch break interval hours">
+            <span class="unit-label">hrs</span>
+          </div>
+          <span class="time-sep">:</span>
+          <div class="time-unit">
+            <input type="number" id="walkaway-interval-m" min="0" max="59" value="0" aria-label="Stretch break interval minutes">
+            <span class="unit-label">min</span>
+          </div>
+          <span class="time-sep">:</span>
+          <div class="time-unit">
+            <input type="number" id="walkaway-interval-s" min="0" max="59" value="0" aria-label="Stretch break interval seconds">
+            <span class="unit-label">sec</span>
+          </div>
+        </div>
+      </div>
 
-    <div class="field">
-      <label for="sound-break-end">
-        <input type="checkbox" id="sound-break-end" checked>
-        Play pong sound
-      </label>
-      <span class="help">Play an audible pong when the break ends</span>
-    </div>
+      <div class="field">
+        <label>Stretch break lasts</label>
+        <span class="help">How long to stand up and stretch before getting back to it</span>
+        <div class="time-inputs" id="walkaway-duration-group">
+          <div class="time-unit">
+            <input type="number" id="walkaway-duration-h" min="0" max="23" value="0" aria-label="Stretch break length hours">
+            <span class="unit-label">hrs</span>
+          </div>
+          <span class="time-sep">:</span>
+          <div class="time-unit">
+            <input type="number" id="walkaway-duration-m" min="0" max="59" value="5" aria-label="Stretch break length minutes">
+            <span class="unit-label">min</span>
+          </div>
+          <span class="time-sep">:</span>
+          <div class="time-unit">
+            <input type="number" id="walkaway-duration-s" min="0" max="59" value="0" aria-label="Stretch break length seconds">
+            <span class="unit-label">sec</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="group group-general">
+      <h2><span class="group-icon">🔁</span> General</h2>
+
+      <div class="field">
+        <label for="launch-login">
+          <input type="checkbox" id="launch-login">
+          Start on login
+        </label>
+        <span class="help">Automatically launch iCare when you log in</span>
+      </div>
+    </section>
+
+    <section class="group group-alert">
+      <h2><span class="group-icon">🔔</span> Alert effects</h2>
+
+      <div class="field">
+        <label for="shake-alert">
+          <input type="checkbox" id="shake-alert" checked>
+          Shake widget
+        </label>
+        <span class="help">Shake the widget when a break is due</span>
+      </div>
+
+      <div class="field">
+        <label for="sound-alert">
+          <input type="checkbox" id="sound-alert" checked>
+          Play ping sound
+        </label>
+        <span class="help">Play an audible ping when a break is due</span>
+      </div>
+
+      <div class="field">
+        <label for="sound-break-end">
+          <input type="checkbox" id="sound-break-end" checked>
+          Play pong sound
+        </label>
+        <span class="help">Play an audible pong when a break ends (×5 for stretch breaks)</span>
+      </div>
+    </section>
 
     <div class="actions">
       <button id="save-btn">Save</button>
