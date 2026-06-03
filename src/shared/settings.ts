@@ -15,7 +15,7 @@ export const DEFAULT_SETTINGS: AppSettings = {
   breakDuration: 20,
   walkAwayEnabled: false,
   walkAwayInterval: 3600,
-  walkAwayDuration: 300,
+  walkAwayDuration: 600,
   launchOnLogin: false,
   shakeOnAlert: true,
   soundOnAlert: true,

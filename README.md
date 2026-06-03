@@ -8,30 +8,9 @@ No accounts. No cloud sync. No analytics. No bloat. Just a small always-on-top w
 
 ## 📸 Screenshots
 
-| Countdown | Alert | Break | Settings |
+| Countdown | Blink alert &amp; break | Stretch break &amp; alert | Settings |
 |---|---|---|---|
-| ![Countdown](docs/screenshots/countdown.png) | ![Alert](docs/screenshots/alert.png) | ![Break](docs/screenshots/break.png) | ![Settings](docs/screenshots/settings.png) |
-
-### 🆕 Stretch break
-
-<!-- 📷 SCREENSHOT PLACEHOLDER — add your stretch break screenshot here:
-     Save it as docs/screenshots/stretch-break.png, then replace the line
-     below with: ![Stretch break](docs/screenshots/stretch-break.png) -->
-
-_📷 Screenshot coming soon — capture the amber **stretch break** state and the new **Stretch break** settings section, then drop the image in `docs/screenshots/stretch-break.png`._
-
-<!-- To add your own screenshots:
-  1. Create the folder: mkdir -p docs/screenshots
-  2. Save your screenshots as:
-     - docs/screenshots/countdown.png      (green timer counting down)
-     - docs/screenshots/alert.png          (red flashing "BLINK" state)
-     - docs/screenshots/break.png          (blue resting countdown)
-     - docs/screenshots/settings.png       (settings panel)
-     - docs/screenshots/stretch-break.png  (amber "WALK" stretch break)
-  3. Optionally add more:
-     - docs/screenshots/tray.png           (system tray menu)
-     - docs/screenshots/shake.png          (widget shaking)
--->
+| ![Countdown](docs/screenshots/countdown.png) | ![Alert](docs/screenshots/eye-alert.png) ![Break](docs/screenshots/eye-break.png) | ![Stretch Alert](docs/screenshots/stretch-alert.png) ![Stretch Start](docs/screenshots/stretch-break.png) | ![Settings](docs/screenshots/settings.png) |
 
 ---
 
@@ -136,7 +115,7 @@ Click the ⚙ icon on the widget (always visible, top-right) or right-click the 
 | 😌 Eye break lasts | 20s | How long the eye rest period lasts |
 | 🚶 Enable stretch breaks | Off | Turn the walk-away-from-keyboard reminder on or off |
 | ⏰ Stretch break every | 1 hr | How often you're reminded to stand up and stretch |
-| 🧘 Stretch break lasts | 5 min | How long the stretch break lasts |
+| 🧘 Stretch break lasts | 10 min | How long the stretch break lasts |
 | 🔁 Start on login | Off | Auto-launch iCare when you log in |
 | 📳 Shake widget | On | Shake the widget on alert |
 | 🔔 Ping sound | On | Audible ping when a break is due |
