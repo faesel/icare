@@ -5,6 +5,7 @@ const SEND_CHANNELS = [
   'settings:set',
   'settings:open',
   'settings:close',
+  'settings:toggleWalkAway',
   'app:quit',
 ];
 

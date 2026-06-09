@@ -48,6 +48,7 @@ class BlinkTimer {
   private widgetEl: HTMLElement;
   private breakBtn: HTMLButtonElement;
   private settingsBtn: HTMLButtonElement;
+  private stretchBtn: HTMLButtonElement;
 
   constructor() {
     this.timerEl = document.getElementById('timer')!;
@@ -56,12 +57,15 @@ class BlinkTimer {
     this.widgetEl = document.getElementById('widget')!;
     this.breakBtn = document.getElementById('break-btn') as HTMLButtonElement;
     this.settingsBtn = document.getElementById('settings-btn') as HTMLButtonElement;
+    this.stretchBtn = document.getElementById('stretch-btn') as HTMLButtonElement;
     this.pingAudio = new Audio('../../assets/ping.wav');
     this.pongAudio = new Audio('../../assets/pong.wav');
 
     this.config = { ...DEFAULT_CONFIG };
     this.breakBtn.addEventListener('click', () => this.onBreakClick());
     this.settingsBtn.addEventListener('click', () => this.onSettingsClick());
+    this.stretchBtn.addEventListener('click', () => this.onStretchToggle());
+    this.updateStretchButton();
 
     // Persistent 1s scheduler that detects when a stretch break becomes due.
     window.setInterval(() => this.checkWalkAway(), 1000);
@@ -283,10 +287,26 @@ class BlinkTimer {
     }
   }
 
+  private onStretchToggle(): void {
+    if ((window as any).icare) {
+      (window as any).icare.send('settings:toggleWalkAway');
+    }
+  }
+
+  // Reflect the stretch (walk-away) on/off state on the always-visible toggle.
+  private updateStretchButton(): void {
+    const on = this.config.walkAwayEnabled;
+    this.stretchBtn.classList.toggle('active', on);
+    this.stretchBtn.setAttribute('aria-pressed', String(on));
+    this.stretchBtn.title = on ? 'Stretch breaks on — click to turn off' : 'Stretch breaks off — click to turn on';
+  }
+
   // Called externally when settings change
   public updateConfig(newConfig: Partial<TimerConfig>): void {
     const prev = this.config;
     this.config = { ...this.config, ...newConfig };
+
+    this.updateStretchButton();
 
     const enabledChanged = prev.walkAwayEnabled !== this.config.walkAwayEnabled;
     const intervalChanged = prev.walkAwayInterval !== this.config.walkAwayInterval;

@@ -288,6 +288,56 @@ html, body {
   outline-offset: 1px;
 }
 
+/* Stretch toggle — always visible, top-left. Green when on, dim when off. */
+#stretch-btn {
+  -webkit-app-region: no-drag;
+  position: absolute;
+  top: 4px;
+  left: 6px;
+  color: #1f7a1f;
+  background: none;
+  border: none;
+  cursor: pointer;
+  opacity: 0.85;
+  transition: opacity 0.2s, color 0.2s, text-shadow 0.2s;
+  z-index: 20;
+  line-height: 0;
+  padding: 2px;
+}
+
+#stretch-btn svg {
+  display: block;
+  filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.6));
+}
+
+#stretch-btn.active {
+  color: #33ff33;
+  opacity: 1;
+}
+
+#stretch-btn.active svg {
+  filter: drop-shadow(0 0 4px rgba(51, 255, 51, 0.8));
+}
+
+#widget:hover #stretch-btn {
+  opacity: 1;
+}
+
+#stretch-btn:hover {
+  opacity: 1 !important;
+  color: #5bff5b;
+}
+
+#stretch-btn.active:hover {
+  color: #5bff5b;
+}
+
+#stretch-btn:focus-visible {
+  opacity: 1 !important;
+  outline: 2px solid #33ff33;
+  outline-offset: 1px;
+}
+
 /* Windows: strip the outer glow box-shadows on all states.
    On Windows, transparent-window compositing causes outer glows to bleed
    into the transparent corner pixels outside the widget's border-radius. */

@@ -219,6 +219,15 @@ ipcMain.on('settings:set', (_event, settings: unknown) => {
   settingsWindow?.close();
 });
 
+ipcMain.on('settings:toggleWalkAway', () => {
+  currentSettings = { ...currentSettings, walkAwayEnabled: !currentSettings.walkAwayEnabled };
+  saveSettings(currentSettings);
+
+  // Notify the main widget and any open settings window
+  mainWindow?.webContents.send('settings:updated', currentSettings);
+  settingsWindow?.webContents.send('settings:current', currentSettings);
+});
+
 ipcMain.on('settings:open', () => {
   createSettingsWindow();
 });
